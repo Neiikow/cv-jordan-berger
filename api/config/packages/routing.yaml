@@ -1,4 +1,6 @@
 framework:
     router:
-        strict_requirements: null
+        strict_requirements: ~
         utf8: true
+    serializer:
+        enabled: true

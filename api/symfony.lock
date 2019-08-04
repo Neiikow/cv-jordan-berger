@@ -78,6 +78,18 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
+    "friendsofsymfony/rest-bundle": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.2",
+            "ref": "cad41ef93d6150067ae2bb3c7fd729492dff6f0a"
+        },
+        "files": [
+            "config/packages/fos_rest.yaml"
+        ]
+    },
     "gesdinet/jwt-refresh-token-bundle": {
         "version": "v0.7.1"
     },
@@ -136,6 +148,15 @@
     },
     "phpcollection/phpcollection": {
         "version": "0.5.0"
+    },
+    "phpdocumentor/reflection-common": {
+        "version": "1.0.1"
+    },
+    "phpdocumentor/reflection-docblock": {
+        "version": "4.3.1"
+    },
+    "phpdocumentor/type-resolver": {
+        "version": "0.4.0"
     },
     "phpoption/phpoption": {
         "version": "1.5.0"
@@ -259,6 +280,9 @@
     "symfony/mime": {
         "version": "v4.3.3"
     },
+    "symfony/options-resolver": {
+        "version": "v4.3.3"
+    },
     "symfony/polyfill-intl-idn": {
         "version": "v1.11.0"
     },
@@ -278,6 +302,9 @@
         "version": "v1.0.4"
     },
     "symfony/property-access": {
+        "version": "v4.3.3"
+    },
+    "symfony/property-info": {
         "version": "v4.3.3"
     },
     "symfony/routing": {
@@ -310,10 +337,19 @@
             "config/packages/security.yaml"
         ]
     },
+    "symfony/serializer": {
+        "version": "v4.3.3"
+    },
+    "symfony/serializer-pack": {
+        "version": "v1.0.2"
+    },
     "symfony/service-contracts": {
         "version": "v1.1.5"
     },
     "symfony/stopwatch": {
+        "version": "v4.3.3"
+    },
+    "symfony/templating": {
         "version": "v4.3.3"
     },
     "symfony/translation-contracts": {
@@ -383,6 +419,15 @@
     },
     "twig/twig": {
         "version": "v2.11.3"
+    },
+    "webmozart/assert": {
+        "version": "1.4.0"
+    },
+    "willdurand/jsonp-callback-validator": {
+        "version": "v1.1.0"
+    },
+    "willdurand/negotiation": {
+        "version": "v2.3.1"
     },
     "zendframework/zend-code": {
         "version": "3.3.1"
