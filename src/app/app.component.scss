@@ -1,0 +1,10 @@
+@import '../styles.scss';
+
+header {
+    width: $header-width;
+    height: 100vh;
+    border-right: solid 1px black;
+}
+#page {
+    margin-left: $header-width;
+}
