@@ -17,7 +17,7 @@ class SkillController extends FOSRestController
 {
     /**
      * @Rest\Post(
-     *    path = "/api/skill/new",
+     *    path = "/api/admin/skill/new",
      *    name = "skill_create"
      * )
      * @Rest\View(StatusCode = 201)
@@ -49,7 +49,7 @@ class SkillController extends FOSRestController
 
     /**
      * @Rest\Post(
-     *    path = "/api/skill/edit/{id}",
+     *    path = "/api/admin/skill/edit/{id}",
      *    name = "skill_edit",
      *    requirements = {"id"="\d+"}
      * )
@@ -85,7 +85,7 @@ class SkillController extends FOSRestController
 
     /**
      * @Rest\Delete(
-     *    path = "/api/skill/delete/{id}",
+     *    path = "/api/admin/skill/delete/{id}",
      *    name = "skill_delete",
      *    requirements = {"id"="\d+"}
      * )

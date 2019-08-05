@@ -94,7 +94,7 @@ class UserController extends FOSRestController
 
     /**
      * @Rest\Post(
-     *    path = "/api/edit/{id}",
+     *    path = "/api/admin/edit/{id}",
      *    name = "edit",
      *    requirements = {"id"="\d+"}
      * )

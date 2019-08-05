@@ -17,7 +17,7 @@ class EducationController extends FOSRestController
 {
     /**
      * @Rest\Post(
-     *    path = "/api/education/new",
+     *    path = "/api/admin/education/new",
      *    name = "education_create"
      * )
      * @Rest\View(StatusCode = 201)
@@ -49,7 +49,7 @@ class EducationController extends FOSRestController
 
     /**
      * @Rest\Post(
-     *    path = "/api/education/edit/{id}",
+     *    path = "/api/admin/education/edit/{id}",
      *    name = "education_edit",
      *    requirements = {"id"="\d+"}
      * )
@@ -86,7 +86,7 @@ class EducationController extends FOSRestController
 
     /**
      * @Rest\Delete(
-     *    path = "/api/education/delete/{id}",
+     *    path = "/api/admin/education/delete/{id}",
      *    name = "education_delete",
      *    requirements = {"id"="\d+"}
      * )

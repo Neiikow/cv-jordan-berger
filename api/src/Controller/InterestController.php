@@ -17,7 +17,7 @@ class InterestController extends FOSRestController
 {
     /**
      * @Rest\Post(
-     *    path = "/api/interest/new",
+     *    path = "/api/admin/interest/new",
      *    name = "interest_create"
      * )
      * @Rest\View(StatusCode = 201)
@@ -49,7 +49,7 @@ class InterestController extends FOSRestController
 
     /**
      * @Rest\Post(
-     *    path = "/api/interest/edit/{id}",
+     *    path = "/api/admin/interest/edit/{id}",
      *    name = "interest_edit",
      *    requirements = {"id"="\d+"}
      * )
@@ -85,7 +85,7 @@ class InterestController extends FOSRestController
 
     /**
      * @Rest\Delete(
-     *    path = "/api/interest/delete/{id}",
+     *    path = "/api/admin/interest/delete/{id}",
      *    name = "interest_delete",
      *    requirements = {"id"="\d+"}
      * )

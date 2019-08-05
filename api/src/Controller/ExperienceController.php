@@ -17,7 +17,7 @@ class ExperienceController extends FOSRestController
 {
     /**
      * @Rest\Post(
-     *    path = "/api/experience/new",
+     *    path = "/api/admin/experience/new",
      *    name = "experience_create"
      * )
      * @Rest\View(StatusCode = 201)
@@ -49,7 +49,7 @@ class ExperienceController extends FOSRestController
 
     /**
      * @Rest\Post(
-     *    path = "/api/experience/edit/{id}",
+     *    path = "/api/admin/experience/edit/{id}",
      *    name = "experience_edit",
      *    requirements = {"id"="\d+"}
      * )
@@ -86,7 +86,7 @@ class ExperienceController extends FOSRestController
 
     /**
      * @Rest\Delete(
-     *    path = "/api/experience/delete/{id}",
+     *    path = "/api/admin/experience/delete/{id}",
      *    name = "experience_delete",
      *    requirements = {"id"="\d+"}
      * )

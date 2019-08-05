@@ -38,7 +38,7 @@ security:
             anonymous: true
 
         api:
-            pattern: ^/api/test
+            pattern: ^/api/admin
             stateless: true
             provider: main
             anonymous: true

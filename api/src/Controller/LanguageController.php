@@ -17,7 +17,7 @@ class LanguageController extends FOSRestController
 {
     /**
      * @Rest\Post(
-     *    path = "/api/language/new",
+     *    path = "/api/admin/language/new",
      *    name = "language_create"
      * )
      * @Rest\View(StatusCode = 201)
@@ -49,7 +49,7 @@ class LanguageController extends FOSRestController
 
     /**
      * @Rest\Post(
-     *    path = "/api/language/edit/{id}",
+     *    path = "/api/admin/language/edit/{id}",
      *    name = "language_edit",
      *    requirements = {"id"="\d+"}
      * )
@@ -84,7 +84,7 @@ class LanguageController extends FOSRestController
 
     /**
      * @Rest\Delete(
-     *    path = "/api/language/delete/{id}",
+     *    path = "/api/admin/language/delete/{id}",
      *    name = "language_delete",
      *    requirements = {"id"="\d+"}
      * )
