@@ -1,0 +1,25 @@
+<section class="">
+  <h1>Connexion</h1>
+  <div class="content">
+    <form [formGroup]="dataForm" (ngSubmit)="onSubmit(dataForm.value)">
+      <div *ngIf="submitted && error" role="alert">
+        {{ error }}
+      </div>
+      <div class="form-group">
+        <label for="username">Pseudo</label>
+        <input type="text" id="username" formControlName="username" [ngClass]="{'is-invalid': submitted && f.username.errors}">
+        <div *ngIf="submitted && f.username.errors">
+          <div *ngIf="f.username.errors.required">Pseudo requis</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" formControlName="password" [ngClass]="{'is-invalid': submitted && f.password.errors}">
+        <div *ngIf="submitted && f.password.errors">
+          <div *ngIf="f.password.errors.required">Mot de passe requis</div>
+        </div>
+      </div>
+      <button type="submit">Se connecter</button>
+    </form>
+  </div>
+</section>

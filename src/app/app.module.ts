@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { PageAdminComponent } from './components/pages/page-admin/page-admin.component';
 import { PageCvComponent } from './components/pages/page-cv/page-cv.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -21,6 +22,7 @@ export function tokenGetter(): any {
     PageAdminComponent,
     PageCvComponent,
     HeaderComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
