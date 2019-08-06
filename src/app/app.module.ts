@@ -16,6 +16,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { InterestComponent } from './components/interest/interest.component';
 import { LanguageComponent } from './components/language/language.component';
 import { SkillComponent } from './components/skill/skill.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -33,6 +34,7 @@ export function tokenGetter(): any {
     InterestComponent,
     LanguageComponent,
     SkillComponent,
+    UserInfoComponent,
   ],
   imports: [
     BrowserModule,

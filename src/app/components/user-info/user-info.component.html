@@ -1,0 +1,9 @@
+  <div *ngIf="user">
+    <div class="mb-3"><img src="{{ user.picture }}" alt="avatar"></div>
+    <p class="mb-0">{{ user.username }}</p>
+    <p class="mb-0">{{ user.email }}</p>
+    <p>{{ user.age }} ans</p>
+    <p class="mb-0">{{ user.postal }} {{ user.city }}</p>
+    <p class="mb-0">{{ user.street }}</p>
+    <p>{{ user.phone }}</p>
+  </div>
