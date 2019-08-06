@@ -1,15 +1,18 @@
 @import '../styles.scss';
 
 header {
-    padding: 15px;
     width: $header-width;
     height: 100vh;
     border-right: solid 1px black;
 }
 
 #page {
-    padding: 15px;
     width: 100%;
     min-height: 100vh;
     margin-left: $header-width;
+
+    .page-content {
+        max-width: 800px;
+        margin: auto;
+    }
 }

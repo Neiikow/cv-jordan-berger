@@ -1,0 +1,9 @@
+<h2>Formation</h2>
+<div class="content">
+    <div *ngIf="educations">
+        <div *ngFor="let education of educations">
+            <p class="mb-0">{{ education.title }}</p>
+            <p>{{ education.company }} ({{ education.startyear }}<span *ngIf="education.endyear"> - {{ education.endyear }}</span>)</p>
+        </div>
+    </div>
+</div>

@@ -11,6 +11,11 @@ import { PageAdminComponent } from './components/pages/page-admin/page-admin.com
 import { PageCvComponent } from './components/pages/page-cv/page-cv.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
+import { EducationComponent } from './components/education/education.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { InterestComponent } from './components/interest/interest.component';
+import { LanguageComponent } from './components/language/language.component';
+import { SkillComponent } from './components/skill/skill.component';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -23,6 +28,11 @@ export function tokenGetter(): any {
     PageCvComponent,
     HeaderComponent,
     LoginComponent,
+    EducationComponent,
+    ExperienceComponent,
+    InterestComponent,
+    LanguageComponent,
+    SkillComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@ $header-width: 250px;
 section {
     border: solid black 1px;
 
-    h1 {
+    h2 {
         padding: 5px;
         border-bottom: solid black 1px;
         text-align: center;
@@ -16,4 +16,8 @@ section {
 
 input {
     display: block;
+}
+
+.row {
+    padding: 15px 0 15px 0;
 }
