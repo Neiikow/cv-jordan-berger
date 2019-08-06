@@ -17,6 +17,11 @@ import { InterestComponent } from './components/interest/interest.component';
 import { LanguageComponent } from './components/language/language.component';
 import { SkillComponent } from './components/skill/skill.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { FormEducationComponent } from './components/education/form-education/form-education.component';
+import { FormExperienceComponent } from './components/experience/form-experience/form-experience.component';
+import { FormInterestComponent } from './components/interest/form-interest/form-interest.component';
+import { FormLanguageComponent } from './components/language/form-language/form-language.component';
+import { FormSkillComponent } from './components/skill/form-skill/form-skill.component';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -35,6 +40,11 @@ export function tokenGetter(): any {
     LanguageComponent,
     SkillComponent,
     UserInfoComponent,
+    FormEducationComponent,
+    FormExperienceComponent,
+    FormInterestComponent,
+    FormLanguageComponent,
+    FormSkillComponent,
   ],
   imports: [
     BrowserModule,

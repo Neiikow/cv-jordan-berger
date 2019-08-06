@@ -1,9 +1,6 @@
-<h2>Compétence</h2>
-<div class="content">
-    <div *ngIf="skills">
-        <div *ngFor="let skill of skills">
-            <p class="mb-0">{{ skill.title }}</p>
-            <p>{{ skill.details }}</p>
-        </div>
+<div *ngIf="skills">
+    <div *ngFor="let skill of skills">
+        <p class="mb-0">{{ skill.title }}</p>
+        <p>{{ skill.details }}</p>
     </div>
 </div>

@@ -1,9 +1,6 @@
-<h2>Centre d'intérêt</h2>
-<div class="content">
-    <div *ngIf="interests">
-        <div *ngFor="let interest of interests">
-            <p class="mb-0">{{ interest.title }}</p>
-            <p>{{ interest.details }}</p>
-        </div>
+<div *ngIf="interests">
+    <div *ngFor="let interest of interests">
+        <p class="mb-0">{{ interest.title }}</p>
+        <p>{{ interest.details }}</p>
     </div>
 </div>
