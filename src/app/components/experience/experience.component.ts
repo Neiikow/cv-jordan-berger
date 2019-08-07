@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExperienceService } from 'src/app/services/experience.service';
 import { Experience } from 'src/app/class/experience';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-experience',
@@ -10,7 +11,9 @@ import { Experience } from 'src/app/class/experience';
 export class ExperienceComponent implements OnInit {
   public experiences: Experience[];
 
-  constructor(private experienceService: ExperienceService) { }
+  constructor(
+    private experienceService: ExperienceService,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.getExperiences();
@@ -21,5 +24,18 @@ export class ExperienceComponent implements OnInit {
       .subscribe(data => {
         this.experiences = data;
       });
+  }
+
+  private delete(experience: Experience): void {
+    this.experienceService.deleteExperience(experience.id)
+    .subscribe(e => {
+      this.getExperiences();
+    });
+  }
+
+  private isAuth(role: string): boolean {
+    if (this.authService.haveRoles(role)) {
+      return true;
+    }
   }
 }

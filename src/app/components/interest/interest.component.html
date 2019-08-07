@@ -1,5 +1,6 @@
 <div *ngIf="interests">
     <div *ngFor="let interest of interests">
+        <button *ngIf="isAuth('ROLE_ADMIN')" (click)="delete(interest)" title="Supprimer"><i class="fas fa-trash-alt"></i></button>
         <p class="mb-0">{{ interest.title }}</p>
         <p>{{ interest.details }}</p>
     </div>

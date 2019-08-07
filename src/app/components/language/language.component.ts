@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService } from 'src/app/services/language.service';
 import { Language } from 'src/app/class/language';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-language',
@@ -10,7 +11,9 @@ import { Language } from 'src/app/class/language';
 export class LanguageComponent implements OnInit {
   public languages: Language[];
 
-  constructor(private languageService: LanguageService) { }
+  constructor(
+    private languageService: LanguageService,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.getLanguages();
@@ -21,5 +24,18 @@ export class LanguageComponent implements OnInit {
       .subscribe(data => {
         this.languages = data;
       });
+  }
+
+  private delete(language: Language): void {
+    this.languageService.deleteLanguage(language.id)
+    .subscribe(e => {
+      this.getLanguages();
+    });
+  }
+
+  private isAuth(role: string): boolean {
+    if (this.authService.haveRoles(role)) {
+      return true;
+    }
   }
 }

@@ -76,6 +76,18 @@ export class AuthService {
     return false;
   }
 
+  public haveRoles(role: string): boolean {
+    if (this.getToken()) {
+      const decodedToken = this.getDecodedToken();
+
+      if (!this.isAuthenticated() || !decodedToken.roles.find((value: string) => value === role)) {
+        return false;
+      }
+      return true;
+    }
+    return false;
+  }
+
   private handleError(error: HttpErrorResponse): any {
     const errorMsg = error.error.message;
     return throwError(errorMsg);

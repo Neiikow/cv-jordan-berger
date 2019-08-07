@@ -1,5 +1,6 @@
 <div *ngIf="skills">
     <div *ngFor="let skill of skills">
+        <button *ngIf="isAuth('ROLE_ADMIN')" (click)="delete(skill)" title="Supprimer"><i class="fas fa-trash-alt"></i></button>
         <p class="mb-0">{{ skill.title }}</p>
         <p>{{ skill.details }}</p>
     </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InterestService } from 'src/app/services/interest.service';
 import { Interest } from 'src/app/class/interest';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-interest',
@@ -10,7 +11,9 @@ import { Interest } from 'src/app/class/interest';
 export class InterestComponent implements OnInit {
   public interests: Interest[];
 
-  constructor(private interestService: InterestService) { }
+  constructor(
+    private interestService: InterestService,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.getInterests();
@@ -21,5 +24,18 @@ export class InterestComponent implements OnInit {
       .subscribe(data => {
         this.interests = data;
       });
+  }
+
+  private delete(interest: Interest): void {
+    this.interestService.deleteInterest(interest.id)
+    .subscribe(e => {
+      this.getInterests();
+    });
+  }
+
+  private isAuth(role: string): boolean {
+    if (this.authService.haveRoles(role)) {
+      return true;
+    }
   }
 }
