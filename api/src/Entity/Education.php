@@ -48,12 +48,6 @@ class Education
     private $endyear;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
-     * @Serializer\Expose
-     */
-    private $isdev;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      * @Serializer\Expose
      */
@@ -108,18 +102,6 @@ class Education
     public function setEndyear(?int $endyear): self
     {
         $this->endyear = $endyear;
-
-        return $this;
-    }
-
-    public function getIsdev(): ?bool
-    {
-        return $this->isdev;
-    }
-
-    public function setIsdev(bool $isdev): self
-    {
-        $this->isdev = $isdev;
 
         return $this;
     }

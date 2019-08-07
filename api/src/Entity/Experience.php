@@ -53,12 +53,6 @@ class Experience
      */
     private $about;
 
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     * @Serializer\Expose
-     */
-    private $isdev;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -120,18 +114,6 @@ class Experience
     public function setAbout(?string $about): self
     {
         $this->about = $about;
-
-        return $this;
-    }
-
-    public function getIsdev(): ?bool
-    {
-        return $this->isdev;
-    }
-
-    public function setIsdev(bool $isdev): self
-    {
-        $this->isdev = $isdev;
 
         return $this;
     }

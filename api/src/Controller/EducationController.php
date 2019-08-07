@@ -77,7 +77,9 @@ class EducationController extends FOSRestController
 
         $data->setTitle($education->getTitle());
         $data->setCompany($education->getCompany());
-        $data->setIsdev($education->getIsdev());
+        $data->setStartyear($education->getStartyear());
+        $data->setEndyear($education->getEndyear());
+        $data->setAbout($education->getAbout());
 
         $em->flush();
 

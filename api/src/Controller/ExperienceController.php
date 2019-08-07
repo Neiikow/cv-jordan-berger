@@ -77,7 +77,9 @@ class ExperienceController extends FOSRestController
 
         $data->setFunction($experience->getFunction());
         $data->setCompany($experience->getCompany());
-        $data->setIsdev($experience->getIsdev());
+        $data->setStartyear($experience->getStartyear());
+        $data->setEndyear($experience->getEndyear());
+        $data->setAbout($experience->getAbout());
 
         $em->flush();
 
