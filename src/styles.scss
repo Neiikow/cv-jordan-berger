@@ -14,8 +14,9 @@ section {
     }
 }
 
-input {
+input , textarea{
     display: block;
+    width: 100%;
 }
 
 .row {

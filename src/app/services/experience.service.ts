@@ -9,6 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class ExperienceService {
   private url = 'http://localhost:8888/cv-jordan-berger/api/public/api/experience';
+  private adminUrl = 'http://localhost:8888/cv-jordan-berger/api/public/api/admin/experience';
 
   constructor(private http: HttpClient) { }
 
@@ -17,15 +18,15 @@ export class ExperienceService {
   }
 
   public addExperience(experience: Experience): Observable<Experience> {
-    return this.http.post<Experience>(this.url + '/new', experience);
+    return this.http.post<Experience>(this.adminUrl + '/new', experience);
   }
 
   public editExperience(experience: Experience): Observable<Experience> {
-    return this.http.post<Experience>(this.url + '/edit/' + experience.id, experience);
+    return this.http.post<Experience>(this.adminUrl + '/edit/' + experience.id, experience);
   }
 
   public deleteExperience(id: number): Observable<any> {
-    return this.http.delete<Experience>(this.url + '/delete/' + id)
+    return this.http.delete<Experience>(this.adminUrl + '/delete/' + id)
     .pipe(
       catchError(this.handleError),
     );

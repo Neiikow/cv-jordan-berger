@@ -9,6 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class LanguageService {
   private url = 'http://localhost:8888/cv-jordan-berger/api/public/api/language';
+  private adminUrl = 'http://localhost:8888/cv-jordan-berger/api/public/api/admin/language';
 
   constructor(private http: HttpClient) { }
 
@@ -17,15 +18,15 @@ export class LanguageService {
   }
 
   public addLanguage(language: Language): Observable<Language> {
-    return this.http.post<Language>(this.url + '/new', language);
+    return this.http.post<Language>(this.adminUrl + '/new', language);
   }
 
   public editLanguage(language: Language): Observable<Language> {
-    return this.http.post<Language>(this.url + '/edit/' + language.id, language);
+    return this.http.post<Language>(this.adminUrl + '/edit/' + language.id, language);
   }
 
   public deleteLanguage(id: number): Observable<any> {
-    return this.http.delete<Language>(this.url + '/delete/' + id)
+    return this.http.delete<Language>(this.adminUrl + '/delete/' + id)
     .pipe(
       catchError(this.handleError),
     );

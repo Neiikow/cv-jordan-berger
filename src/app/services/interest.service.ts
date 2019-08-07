@@ -9,6 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class InterestService {
   private url = 'http://localhost:8888/cv-jordan-berger/api/public/api/interest';
+  private adminUrl = 'http://localhost:8888/cv-jordan-berger/api/public/api/admin/interest';
 
   constructor(private http: HttpClient) { }
 
@@ -17,15 +18,15 @@ export class InterestService {
   }
 
   public addInterest(interest: Interest): Observable<Interest> {
-    return this.http.post<Interest>(this.url + '/new', interest);
+    return this.http.post<Interest>(this.adminUrl + '/new', interest);
   }
 
   public editInterest(interest: Interest): Observable<Interest> {
-    return this.http.post<Interest>(this.url + '/edit/' + interest.id, interest);
+    return this.http.post<Interest>(this.adminUrl + '/edit/' + interest.id, interest);
   }
 
   public deleteInterest(id: number): Observable<any> {
-    return this.http.delete<Interest>(this.url + '/delete/' + id)
+    return this.http.delete<Interest>(this.adminUrl + '/delete/' + id)
     .pipe(
       catchError(this.handleError),
     );

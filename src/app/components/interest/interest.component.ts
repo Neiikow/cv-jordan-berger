@@ -16,7 +16,7 @@ export class InterestComponent implements OnInit {
     this.getInterests();
   }
 
-  private getInterests(): void {
+  public getInterests(): void {
     this.interestService.getInterests()
       .subscribe(data => {
         this.interests = data;

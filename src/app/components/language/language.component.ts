@@ -16,7 +16,7 @@ export class LanguageComponent implements OnInit {
     this.getLanguages();
   }
 
-  private getLanguages(): void {
+  public getLanguages(): void {
     this.languageService.getLanguages()
       .subscribe(data => {
         this.languages = data;

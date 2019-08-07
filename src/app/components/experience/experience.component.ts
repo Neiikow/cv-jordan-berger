@@ -16,7 +16,7 @@ export class ExperienceComponent implements OnInit {
     this.getExperiences();
   }
 
-  private getExperiences(): void {
+  public getExperiences(): void {
     this.experienceService.getExperiences()
       .subscribe(data => {
         this.experiences = data;

@@ -16,7 +16,7 @@ export class SkillComponent implements OnInit {
     this.getSkills();
   }
 
-  private getSkills(): void {
+  public getSkills(): void {
     this.skillService.getSkills()
       .subscribe(data => {
         this.skills = data;

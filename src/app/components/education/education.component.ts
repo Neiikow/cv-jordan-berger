@@ -16,7 +16,7 @@ export class EducationComponent implements OnInit {
     this.getEducations();
   }
 
-  private getEducations(): void {
+  public getEducations(): void {
     this.educationService.getEducations()
       .subscribe(data => {
         this.educations = data;
