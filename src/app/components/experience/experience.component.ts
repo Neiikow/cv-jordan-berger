@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ExperienceService } from 'src/app/services/experience.service';
 import { Experience } from 'src/app/class/experience';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./experience.component.scss']
 })
 export class ExperienceComponent implements OnInit {
+  @Output() emitEdit = new EventEmitter<Experience>();
+
   public experiences: Experience[];
 
   constructor(
@@ -24,6 +26,10 @@ export class ExperienceComponent implements OnInit {
       .subscribe(data => {
         this.experiences = data;
       });
+  }
+
+  private edit(experience: Experience): void {
+    this.emitEdit.emit(experience);
   }
 
   private delete(experience: Experience): void {

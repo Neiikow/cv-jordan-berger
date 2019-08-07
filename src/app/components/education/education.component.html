@@ -1,5 +1,6 @@
 <div *ngIf="educations">
     <div *ngFor="let education of educations">
+        <button *ngIf="isAuth('ROLE_ADMIN')" (click)="edit(education)" title="Editer"><i class="fas fa-edit"></i></button>
         <button *ngIf="isAuth('ROLE_ADMIN')" (click)="delete(education)" title="Supprimer"><i class="fas fa-trash-alt"></i></button>
         <p class="mb-0">{{ education.title }}</p>
         <p>{{ education.company }} ({{ education.startyear }}<span *ngIf="education.endyear"> - {{ education.endyear }}</span>)</p>

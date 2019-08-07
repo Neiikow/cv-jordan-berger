@@ -24,6 +24,10 @@ export class FormInterestComponent implements OnInit {
     this.initForm();
   }
 
+  public reset(): void {
+    this.initForm();
+  }
+
   private onSubmit(formData: Interest): void {
     this.submitted = true;
 
@@ -31,14 +35,23 @@ export class FormInterestComponent implements OnInit {
       return;
     }
 
-    this.interestService.addInterest(formData).subscribe(e => {
-      this.submitted = false;
-      this.initForm();
-      this.refreshInterest.emit();
-    });
+    if (this.edit) {
+      this.interestService.editInterest(formData).subscribe(e => {
+        this.submitted = false;
+        this.initForm();
+        this.refreshInterest.emit();
+      });
+    } else {
+      this.interestService.addInterest(formData).subscribe(e => {
+        this.submitted = false;
+        this.initForm();
+        this.refreshInterest.emit();
+      });
+    }
   }
 
-  private initForm(data?: Interest): void {
+  public initForm(data?: Interest): void {
+    if (data) { this.edit = true; } else { this.edit = false; }
     this.dataForm = this.formBuilder.group({
       title: [this.edit ? data.title : null, [Validators.required, Validators.maxLength(255)]],
       details: [this.edit ? data.details : null, [Validators.required, Validators.maxLength(10000)]],

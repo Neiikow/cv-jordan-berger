@@ -1,5 +1,6 @@
 <div *ngIf="languages">
     <div *ngFor="let language of languages">
+        <button *ngIf="isAuth('ROLE_ADMIN')" (click)="edit(language)" title="Editer"><i class="fas fa-edit"></i></button>
         <button *ngIf="isAuth('ROLE_ADMIN')" (click)="delete(language)" title="Supprimer"><i class="fas fa-trash-alt"></i></button>
         <p>{{ language.name }}</p>
     </div>

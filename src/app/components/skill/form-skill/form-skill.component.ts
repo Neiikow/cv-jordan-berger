@@ -24,6 +24,10 @@ export class FormSkillComponent implements OnInit {
     this.initForm();
   }
 
+  public reset(): void {
+    this.initForm();
+  }
+
   private onSubmit(formData: Skill): void {
     this.submitted = true;
 
@@ -31,18 +35,27 @@ export class FormSkillComponent implements OnInit {
       return;
     }
 
-    this.skillService.addSkill(formData).subscribe(e => {
-      this.submitted = false;
-      this.initForm();
-      this.refreshSkill.emit();
-    });
+    if (this.edit) {
+      this.skillService.editSkill(formData).subscribe(e => {
+        this.submitted = false;
+        this.initForm();
+        this.refreshSkill.emit();
+      });
+    } else {
+      this.skillService.addSkill(formData).subscribe(e => {
+        this.submitted = false;
+        this.initForm();
+        this.refreshSkill.emit();
+      });
+    }
   }
 
-  private initForm(data?: Skill): void {
+  public initForm(data?: Skill): void {
+    if (data) { this.edit = true; } else { this.edit = false; }
     this.dataForm = this.formBuilder.group({
-      title: [this.edit ? data.title : null, [Validators.required, Validators.maxLength(255)]],
-      details: [this.edit ? data.details : null, [Validators.required, Validators.maxLength(10000)]],
-      id: this.edit ? data.id : null,
+      title: [data ? data.title : null, [Validators.required, Validators.maxLength(255)]],
+      details: [data ? data.details : null, [Validators.required, Validators.maxLength(10000)]],
+      id: data ? data.id : null,
     });
     this.skill = this.dataForm.value;
   }

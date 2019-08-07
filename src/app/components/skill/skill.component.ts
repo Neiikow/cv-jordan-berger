@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SkillService } from 'src/app/services/skill.service';
 import { Skill } from 'src/app/class/skill';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./skill.component.scss']
 })
 export class SkillComponent implements OnInit {
+  @Output() emitEdit = new EventEmitter<Skill>();
+
   public skills: Skill[];
 
   constructor(
@@ -24,6 +26,10 @@ export class SkillComponent implements OnInit {
       .subscribe(data => {
         this.skills = data;
       });
+  }
+
+  private edit(skill: Skill): void {
+    this.emitEdit.emit(skill);
   }
 
   private delete(skill: Skill): void {

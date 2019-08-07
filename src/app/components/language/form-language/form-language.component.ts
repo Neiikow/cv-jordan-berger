@@ -24,6 +24,10 @@ export class FormLanguageComponent implements OnInit {
     this.initForm();
   }
 
+  public reset(): void {
+    this.initForm();
+  }
+
   private onSubmit(formData: Language): void {
     this.submitted = true;
 
@@ -31,14 +35,23 @@ export class FormLanguageComponent implements OnInit {
       return;
     }
 
-    this.languageService.addLanguage(formData).subscribe(e => {
-      this.submitted = false;
-      this.initForm();
-      this.refreshLanguage.emit();
-    });
+    if (this.edit) {
+      this.languageService.editLanguage(formData).subscribe(e => {
+        this.submitted = false;
+        this.initForm();
+        this.refreshLanguage.emit();
+      });
+    } else {
+      this.languageService.addLanguage(formData).subscribe(e => {
+        this.submitted = false;
+        this.initForm();
+        this.refreshLanguage.emit();
+      });
+    }
   }
 
-  private initForm(data?: Language): void {
+  public initForm(data?: Language): void {
+    if (data) { this.edit = true; } else { this.edit = false; }
     this.dataForm = this.formBuilder.group({
       name: [this.edit ? data.name : null, [Validators.required, Validators.maxLength(255)]],
       id: this.edit ? data.id : null,

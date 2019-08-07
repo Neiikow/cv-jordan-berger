@@ -5,5 +5,4 @@ export class Education {
     public startyear: number;
     public endyear: number;
     public about: string;
-    public isdev: boolean;
 }

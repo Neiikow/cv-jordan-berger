@@ -24,6 +24,10 @@ export class FormEducationComponent implements OnInit {
     this.initForm();
   }
 
+  public reset(): void {
+    this.initForm();
+  }
+
   private onSubmit(formData: Education): void {
     this.submitted = true;
 
@@ -31,14 +35,23 @@ export class FormEducationComponent implements OnInit {
       return;
     }
 
-    this.educationService.addEducation(formData).subscribe(e => {
-      this.submitted = false;
-      this.initForm();
-      this.refreshEducation.emit();
-    });
+    if (this.edit) {
+      this.educationService.editEducation(formData).subscribe(e => {
+        this.submitted = false;
+        this.initForm();
+        this.refreshEducation.emit();
+      });
+    } else {
+      this.educationService.addEducation(formData).subscribe(e => {
+        this.submitted = false;
+        this.initForm();
+        this.refreshEducation.emit();
+      });
+    }
   }
 
-  private initForm(data?: Education): void {
+  public initForm(data?: Education): void {
+    if (data) { this.edit = true; } else { this.edit = false; }
     this.dataForm = this.formBuilder.group({
       title: [this.edit ? data.title : null, [Validators.required, Validators.maxLength(255)]],
       company: [this.edit ? data.company : null, [Validators.required, Validators.maxLength(255)]],

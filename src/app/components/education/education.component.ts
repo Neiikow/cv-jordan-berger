@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { EducationService } from 'src/app/services/education.service';
 import { Education } from 'src/app/class/education';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./education.component.scss']
 })
 export class EducationComponent implements OnInit {
+  @Output() emitEdit = new EventEmitter<Education>();
+
   public educations: Education[];
 
   constructor(
@@ -24,6 +26,10 @@ export class EducationComponent implements OnInit {
       .subscribe(data => {
         this.educations = data;
       });
+  }
+
+  private edit(education: Education): void {
+    this.emitEdit.emit(education);
   }
 
   private delete(education: Education): void {

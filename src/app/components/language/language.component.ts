@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LanguageService } from 'src/app/services/language.service';
 import { Language } from 'src/app/class/language';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./language.component.scss']
 })
 export class LanguageComponent implements OnInit {
+  @Output() emitEdit = new EventEmitter<Language>();
+
   public languages: Language[];
 
   constructor(
@@ -24,6 +26,10 @@ export class LanguageComponent implements OnInit {
       .subscribe(data => {
         this.languages = data;
       });
+  }
+
+  private edit(language: Language): void {
+    this.emitEdit.emit(language);
   }
 
   private delete(language: Language): void {

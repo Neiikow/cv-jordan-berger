@@ -3,7 +3,7 @@
     <section>
       <h2>Compétence</h2>
       <div class="content row">
-        <app-skill class="col-7"></app-skill>
+        <app-skill class="col-7" (emitEdit)="editSkill($event)"></app-skill>
         <app-form-skill class="col-5" (refreshSkill)="refreshSkill()"></app-form-skill>
       </div>
     </section>
@@ -14,7 +14,7 @@
     <section>
       <h2>Langage</h2>
       <div class="content row">
-        <app-language class="col-7"></app-language>
+        <app-language class="col-7" (emitEdit)="editLanguage($event)"></app-language>
         <app-form-language class="col-5" (refreshLanguage)="refreshLanguage()"></app-form-language>
       </div>
     </section>
@@ -25,7 +25,7 @@
     <section>
       <h2>Expérience</h2>
       <div class="content row">
-        <app-experience class="col-7"></app-experience>
+        <app-experience class="col-7" (emitEdit)="editExperience($event)"></app-experience>
         <app-form-experience class="col-5" (refreshExperience)="refreshExperience()"></app-form-experience>
       </div>
     </section>
@@ -36,7 +36,7 @@
     <section>
       <h2>Formation</h2>
       <div class="content row">
-        <app-education class="col-7"></app-education>
+        <app-education class="col-7" (emitEdit)="editEducation($event)"></app-education>
         <app-form-education class="col-5" (refreshEducation)="refreshEducation()"></app-form-education>
       </div>
     </section>
@@ -47,7 +47,7 @@
     <section>
       <h2>Centre d"intérêt</h2>
       <div class="content row">
-        <app-interest class="col-7"></app-interest>
+        <app-interest class="col-7" (emitEdit)="editInterest($event)"></app-interest>
         <app-form-interest class="col-5" (refreshInterest)="refreshInterest()"></app-form-interest>
       </div>
     </section>

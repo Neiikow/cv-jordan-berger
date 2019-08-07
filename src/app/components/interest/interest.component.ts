@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { InterestService } from 'src/app/services/interest.service';
 import { Interest } from 'src/app/class/interest';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./interest.component.scss']
 })
 export class InterestComponent implements OnInit {
+  @Output() emitEdit = new EventEmitter<Interest>();
+
   public interests: Interest[];
 
   constructor(
@@ -24,6 +26,10 @@ export class InterestComponent implements OnInit {
       .subscribe(data => {
         this.interests = data;
       });
+  }
+
+  private edit(interest: Interest): void {
+    this.emitEdit.emit(interest);
   }
 
   private delete(interest: Interest): void {

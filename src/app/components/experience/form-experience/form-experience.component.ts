@@ -24,6 +24,10 @@ export class FormExperienceComponent implements OnInit {
     this.initForm();
   }
 
+  public reset(): void {
+    this.initForm();
+  }
+
   private onSubmit(formData: Experience): void {
     this.submitted = true;
 
@@ -31,14 +35,23 @@ export class FormExperienceComponent implements OnInit {
       return;
     }
 
-    this.experienceService.addExperience(formData).subscribe(e => {
-      this.submitted = false;
-      this.initForm();
-      this.refreshExperience.emit();
-    });
+    if (this.edit) {
+      this.experienceService.editExperience(formData).subscribe(e => {
+        this.submitted = false;
+        this.initForm();
+        this.refreshExperience.emit();
+      });
+    } else {
+      this.experienceService.addExperience(formData).subscribe(e => {
+        this.submitted = false;
+        this.initForm();
+        this.refreshExperience.emit();
+      });
+    }
   }
 
-  private initForm(data?: Experience): void {
+  public initForm(data?: Experience): void {
+    if (data) { this.edit = true; } else { this.edit = false; }
     this.dataForm = this.formBuilder.group({
       function: [this.edit ? data.function : null, [Validators.required, Validators.maxLength(255)]],
       company: [this.edit ? data.company : null, [Validators.required, Validators.maxLength(255)]],

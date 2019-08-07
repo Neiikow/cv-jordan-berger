@@ -1,5 +1,6 @@
 <div *ngIf="experiences">
     <div *ngFor="let experience of experiences">
+        <button *ngIf="isAuth('ROLE_ADMIN')" (click)="edit(experience)" title="Editer"><i class="fas fa-edit"></i></button>
         <button *ngIf="isAuth('ROLE_ADMIN')" (click)="delete(experience)" title="Supprimer"><i class="fas fa-trash-alt"></i></button>
         <p class="mb-0">{{ experience.function }}</p>
         <p>{{ experience.company }} ({{ experience.startyear }}<span *ngIf="experience.endyear"> - {{ experience.endyear }}</span>)</p>
