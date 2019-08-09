@@ -76,6 +76,7 @@ class InterestController extends FOSRestController
         }
 
         $data->setTitle($interest->getTitle());
+        $data->setIcone($interest->getIcone());
         $data->setDetails($interest->getDetails());
 
         $em->flush();

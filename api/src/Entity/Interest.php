@@ -29,6 +29,13 @@ class Interest
     private $title;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     * @Serializer\Expose
+     * @Assert\NotBlank
+     */
+    private $icone;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      * @Serializer\Expose
      */
@@ -47,6 +54,18 @@ class Interest
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getIcone(): ?string
+    {
+        return $this->icone;
+    }
+
+    public function setIcone(string $icone): self
+    {
+        $this->icone = $icone;
 
         return $this;
     }
