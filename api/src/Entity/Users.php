@@ -67,13 +67,13 @@ class Users implements UserInterface
     private $street;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      * @Serializer\Expose
      */
     private $postal;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      * @Serializer\Expose
      */
     private $phone;
@@ -181,24 +181,24 @@ class Users implements UserInterface
         return $this;
     }
 
-    public function getPostal(): ?int
+    public function getPostal(): ?string
     {
         return $this->postal;
     }
 
-    public function setPostal(?int $postal): self
+    public function setPostal(?string $postal): self
     {
         $this->postal = $postal;
 
         return $this;
     }
 
-    public function getPhone(): ?int
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(?int $phone): self
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
 
