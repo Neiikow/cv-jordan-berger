@@ -2,11 +2,11 @@
   <div class="form-group">
     <label for="name">Nom</label>
     <input type="text" id="name" formControlName="name" [ngClass]="{'is-invalid': submitted && f.name.errors}">
-    <div *ngIf="submitted && f.name.errors">
+    <div *ngIf="submitted && f.name.errors" class="invalid-data">
       <div *ngIf="f.name.errors.required">Champ requis</div>
       <div *ngIf="f.name.errors.maxlength">Trop long</div>
     </div>
   </div>
-  <button type="submit">Publier</button>
+  <button class="add" type="submit" title="Publier">Publier</button>
+  <button class="reset ml-3" (click)="reset()" title="Reset">Reset</button>
 </form>
-<button (click)="reset()" title="Reset">Reset</button>

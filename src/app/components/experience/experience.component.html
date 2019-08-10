@@ -1,8 +1,13 @@
 <div *ngIf="experiences">
-    <div *ngFor="let experience of experiences">
-        <button *ngIf="isAuth('ROLE_ADMIN')" (click)="edit(experience)" title="Editer"><i class="fas fa-edit"></i></button>
-        <button *ngIf="isAuth('ROLE_ADMIN')" (click)="delete(experience)" title="Supprimer"><i class="fas fa-trash-alt"></i></button>
-        <p class="mb-0">{{ experience.function }}</p>
-        <p>{{ experience.company }} ({{ experience.startyear }}<span *ngIf="experience.endyear"> - {{ experience.endyear }}</span>)</p>
-    </div>
+    <button class="item d-flex justify-content-between align-items-center" *ngFor="let experience of experiences">
+        <div class="text-left">
+            <p class="mb-0 text-uppercase font-weight-bold">{{ experience.function }}</p>
+            <p class="font-italic font-weight-light">{{ experience.company }} ({{ experience.startyear }}<span *ngIf="experience.startyear != experience.endyear"> - {{ experience.endyear }}</span>)</p>
+            <p class="item-about">{{ experience.about }}</p>
+        </div>
+        <div>
+            <button class="edit" *ngIf="isAuth('ROLE_ADMIN')" (click)="edit(experience)" title="Editer"><i class="fas fa-pen"></i></button>
+            <button class="delete" *ngIf="isAuth('ROLE_ADMIN')" (click)="delete(experience)" title="Supprimer"><i class="fas fa-times"></i></button>        
+        </div>
+    </button>
 </div>

@@ -26,9 +26,14 @@ export class FormSkillComponent implements OnInit {
 
   public reset(): void {
     this.initForm();
+    this.submitted = false;
   }
 
   private onSubmit(formData: Skill): void {
+    if (document.activeElement.getAttribute('Title') === 'Reset') {
+      return;
+    }
+
     this.submitted = true;
 
     if (this.dataForm.invalid) {

@@ -1,24 +1,133 @@
 $header-width: 250px;
 
+$bg-color: #383838;
+$box-color: #2a2a2a;
+$primary-color: rgb(30, 143, 255);
+$secondary-color: royalblue;
+$alert-color: rgb(199, 46, 0);
+
+body {
+    color: scale-color(white, $lightness: -30%);
+}
+
 section {
+    margin-bottom: 30px;
     border: solid black 1px;
+    background: $box-color;
+    box-shadow: 0 0 10px black;
 
     h2 {
+        color: scale-color(white, $lightness: -10%);
+        background: linear-gradient(to top, 
+            scale-color($primary-color, $lightness: -50%), 
+                scale-color($primary-color, $lightness: -25%), 
+                    $primary-color, 
+                    $primary-color, 
+                scale-color($primary-color, $lightness: -25%), 
+            scale-color($primary-color, $lightness: -50%));
         padding: 5px;
-        border-bottom: solid black 1px;
         text-align: center;
         margin: 0;
+        text-shadow: 2px 2px 3px black;
     }
-    .content {
+    .item {
+        color: scale-color(white, $lightness: -30%);
+        width: 100%;
+        background: none;
         padding: 10px;
+        padding-left: 25px;
+        border: none;
+        border-top: solid $bg-color 1px;
+
+        &:hover {
+            background: $bg-color;
+            border-left: solid 2px $primary-color;
+        }
+        &:focus {
+            outline: none;
+
+            .item-about {
+                max-height: 300px;
+                transition: max-height 1s;
+                transition-timing-function: linear;
+            }
+        }
+    }
+    button.item {
+        cursor: pointer;
+    }
+    .item button {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        margin-right: 7px;
+    }
+    .item button, form button {
+        background: unset;
+
+        &:hover {
+            cursor: pointer;
+            background: white;
+        }
+        &:focus {
+            outline: none;
+        }
+        &:active {
+            background: unset;
+        }
+    }
+    .edit, .add {
+        color: $primary-color;
+        border: solid $primary-color 1px;
+        box-shadow: 0 0 5px scale-color($primary-color, $lightness: +40%);
+    }
+    .delete, .reset {
+        color: $alert-color;
+        border: solid $alert-color 1px;
+        box-shadow: 0 0 5px scale-color($alert-color, $lightness: +30%);
+    }
+    .item-icone {
+        font-size: 2.5em;
+    }
+    .item-about {
+        margin-left: 20px;
+        padding-left: 8px;
+        border-left: solid $primary-color 1px;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height .3s;
+        transition-timing-function: linear;
     }
 }
 
-input , textarea{
-    display: block;
-    width: 100%;
+form {
+    padding: 10px;
+    padding-left: 0;
+
+    input , textarea{
+        padding: 2px 10px;
+        color: scale-color(white, $lightness: -30%);
+        width: 100%;
+        background: $bg-color;
+        border: solid 1px $bg-color;
+
+        &:focus {
+            outline: none;
+            border: solid 1px $primary-color;
+        }
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus{
+        -webkit-text-fill-color: scale-color(white, $lightness: -30%);
+        box-shadow: 0 0 0px 1000px $bg-color inset;
+    }
+    .invalid-data {
+        color: $alert-color;
+        font-size: 12px;
+    } 
 }
 
-.row {
-    padding: 15px 0 15px 0;
+p {
+    margin: 0;
 }

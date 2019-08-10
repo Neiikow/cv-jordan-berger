@@ -1,8 +1,12 @@
-<div *ngIf="interests">
-    <div *ngFor="let interest of interests">
-        <button *ngIf="isAuth('ROLE_ADMIN')" (click)="edit(interest)" title="Editer"><i class="fas fa-edit"></i></button>
-        <button *ngIf="isAuth('ROLE_ADMIN')" (click)="delete(interest)" title="Supprimer"><i class="fas fa-trash-alt"></i></button>
-        <p class="mb-0">{{ interest.title }}</p>
-        <p>{{ interest.details }}</p>
+<div class="d-flex" *ngIf="interests">
+    <div class="item text-center col" *ngFor="let interest of interests">
+        <div>
+            <p class="item-icone" [innerHTML]="interest.icone"></p>
+            <p>{{ interest.title }}</p>
+        </div>
+        <div class="mt-2">
+            <button class="edit" *ngIf="isAuth('ROLE_ADMIN')" (click)="edit(interest)" title="Editer"><i class="fas fa-pen"></i></button>
+            <button class="delete" *ngIf="isAuth('ROLE_ADMIN')" (click)="delete(interest)" title="Supprimer"><i class="fas fa-times"></i></button>
+        </div>
     </div>
 </div>

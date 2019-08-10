@@ -7,8 +7,8 @@ export class User {
     public roles: [string];
     public city: string;
     public street: string;
-    public postal: number;
-    public phone: number;
+    public postal: string;
+    public phone: string;
     public about: string;
     public age: number;
 }

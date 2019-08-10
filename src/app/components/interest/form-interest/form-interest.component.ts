@@ -26,9 +26,14 @@ export class FormInterestComponent implements OnInit {
 
   public reset(): void {
     this.initForm();
+    this.submitted = false;
   }
 
   private onSubmit(formData: Interest): void {
+    if (document.activeElement.getAttribute('Title') === 'Reset') {
+      return;
+    }
+
     this.submitted = true;
 
     if (this.dataForm.invalid) {
@@ -53,6 +58,7 @@ export class FormInterestComponent implements OnInit {
   public initForm(data?: Interest): void {
     if (data) { this.edit = true; } else { this.edit = false; }
     this.dataForm = this.formBuilder.group({
+      icone: [this.edit ? data.icone : null, [Validators.required, Validators.maxLength(255)]],
       title: [this.edit ? data.title : null, [Validators.required, Validators.maxLength(255)]],
       details: [this.edit ? data.details : null, [Validators.required, Validators.maxLength(10000)]],
       id: this.edit ? data.id : null,

@@ -2,7 +2,7 @@
   <div class="form-group">
       <label for="function">Fonction</label>
       <input type="text" id="function" formControlName="function" [ngClass]="{'is-invalid': submitted && f.function.errors}">
-      <div *ngIf="submitted && f.function.errors">
+      <div *ngIf="submitted && f.function.errors" class="invalid-data">
           <div *ngIf="f.function.errors.required">Champ requis</div>
           <div *ngIf="f.function.errors.maxlength">Trop long</div>
       </div>
@@ -10,35 +10,37 @@
   <div class="form-group">
       <label for="company">Entreprise</label>
       <input type="text" id="company" formControlName="company" [ngClass]="{'is-invalid': submitted && f.company.errors}">
-      <div *ngIf="submitted && f.company.errors">
+      <div *ngIf="submitted && f.company.errors" class="invalid-data">
           <div *ngIf="f.company.errors.required">Champ requis</div>
           <div *ngIf="f.company.errors.maxlength">Trop long</div>
       </div>
   </div>
-  <div class="form-group">
-      <label for="startyear">Début</label>
-      <input type="text" id="startyear" formControlName="startyear" [ngClass]="{'is-invalid': submitted && f.startyear.errors}">
-      <div *ngIf="submitted && f.startyear.errors">
-          <div *ngIf="f.startyear.errors.required">Champ requis</div>
-          <div *ngIf="f.startyear.errors.maxlength">Trop long</div>
-      </div>
-  </div>
-  <div class="form-group">
-      <label for="endyear">Fin</label>
-      <input type="text" id="endyear" formControlName="endyear" [ngClass]="{'is-invalid': submitted && f.endyear.errors}">
-      <div *ngIf="submitted && f.endyear.errors">
-          <div *ngIf="f.endyear.errors.required">Champ requis</div>
-          <div *ngIf="f.endyear.errors.maxlength">Trop long</div>
-      </div>
+  <div class="row form-group">
+    <div class="col">
+        <label for="startyear">Début</label>
+        <input type="text" id="startyear" formControlName="startyear" [ngClass]="{'is-invalid': submitted && f.startyear.errors}">
+        <div *ngIf="submitted && f.startyear.errors" class="invalid-data">
+            <div *ngIf="f.startyear.errors.required">Champ requis</div>
+            <div *ngIf="f.startyear.errors.maxlength">Trop long</div>
+        </div>
+    </div>
+    <div class="col">
+        <label for="endyear">Fin</label>
+        <input type="text" id="endyear" formControlName="endyear" [ngClass]="{'is-invalid': submitted && f.endyear.errors}">
+        <div *ngIf="submitted && f.endyear.errors" class="invalid-data">
+            <div *ngIf="f.endyear.errors.required">Champ requis</div>
+            <div *ngIf="f.endyear.errors.maxlength">Trop long</div>
+        </div>
+    </div>
   </div>
   <div class="form-group">
       <label for="about">Détails</label>
       <textarea id="about" formControlName="about" [ngClass]="{'is-invalid': submitted && f.about.errors}"></textarea>
-      <div *ngIf="submitted && f.about.errors">
+      <div *ngIf="submitted && f.about.errors" class="invalid-data">
           <div *ngIf="f.about.errors.required">Champ requis</div>
           <div *ngIf="f.about.errors.maxlength">Trop long</div>
       </div>
   </div>
-  <button type="submit">Publier</button>
+  <button class="add" type="submit" title="Publier">Publier</button>
+  <button class="reset ml-3" (click)="reset()" title="Reset">Reset</button>
 </form>
-<button (click)="reset()" title="Reset">Reset</button>

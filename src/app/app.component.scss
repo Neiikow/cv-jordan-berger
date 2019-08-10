@@ -1,15 +1,20 @@
 @import '../styles.scss';
 
 header {
+    text-align: center;
+    padding: 1.7em;
     width: $header-width;
     height: 100vh;
-    border-right: solid 1px black;
+    background: $box-color;
+    box-shadow: 0 0 15px 2px $secondary-color, inset -10px 0 10px -10px black;
+    border-right: solid black 1px;
 }
 
 #page {
     width: 100%;
     min-height: 100vh;
     margin-left: $header-width;
+    background: $bg-color;
 
     .page-content {
         max-width: 800px;
