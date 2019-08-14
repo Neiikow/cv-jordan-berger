@@ -1,0 +1,11 @@
+@import 'src/styles.scss';
+
+.item {
+    padding: 10px;
+
+    &:hover {
+        padding-left: 10px;
+        border-left: none;
+        border-top: 1px solid $primary-color;
+    }
+}

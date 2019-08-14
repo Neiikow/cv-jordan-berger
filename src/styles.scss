@@ -1,56 +1,51 @@
 $header-width: 250px;
 
-$bg-color: #383838;
-$box-color: #2a2a2a;
-$primary-color: rgb(30, 143, 255);
-$secondary-color: royalblue;
+$bg-color: scale-color(white, $lightness: -4%);
+$txt-color: scale-color(black, $lightness: 15%);
+$primary-color: orange;
+$secondary-color: sienna;
 $alert-color: rgb(199, 46, 0);
 
 body {
-    color: scale-color(white, $lightness: -30%);
+    color: $txt-color;
 }
 
 section {
     margin-bottom: 30px;
-    border: solid black 1px;
-    background: $box-color;
-    box-shadow: 0 0 10px black;
+    background: $bg-color;
+    box-shadow: 0 0 7px black;
 
     h2 {
-        color: scale-color(white, $lightness: -10%);
-        background: linear-gradient(to top, 
-            scale-color($primary-color, $lightness: -50%), 
-                scale-color($primary-color, $lightness: -25%), 
-                    $primary-color, 
-                    $primary-color, 
-                scale-color($primary-color, $lightness: -25%), 
-            scale-color($primary-color, $lightness: -50%));
-        padding: 5px;
-        text-align: center;
+        color: $secondary-color;
+        font-size: 1.8em;
+        padding: 10px;
+        padding-left: 20px;
         margin: 0;
-        text-shadow: 2px 2px 3px black;
+        background: scale-color($primary-color, $lightness: 95%);
     }
     .item {
-        color: scale-color(white, $lightness: -30%);
+        color: $txt-color;
         width: 100%;
         background: none;
         padding: 10px;
-        padding-left: 25px;
+        padding-left: 35px;
         border: none;
-        border-top: solid $bg-color 1px;
+        border-top: solid scale-color(black, $lightness: 85%) 1px;
 
         &:hover {
-            background: $bg-color;
+            background: scale-color($primary-color, $lightness: 95%);
             border-left: solid 2px $primary-color;
+            padding-left: 33px;
         }
         &:focus {
             outline: none;
-
-            .item-about {
-                max-height: 300px;
-                transition: max-height 1s;
-                transition-timing-function: linear;
-            }
+        }
+    }
+    .active {
+        .item-about {
+            max-height: 200px;
+            transition: max-height 1s;
+            transition-timing-function: linear;
         }
     }
     button.item {
@@ -60,14 +55,14 @@ section {
         height: 30px;
         width: 30px;
         border-radius: 50%;
-        margin-right: 7px;
+        margin: 3px;
     }
     .item button, form button {
         background: unset;
 
         &:hover {
             cursor: pointer;
-            background: white;
+            color: $txt-color;
         }
         &:focus {
             outline: none;
@@ -87,15 +82,17 @@ section {
         box-shadow: 0 0 5px scale-color($alert-color, $lightness: +30%);
     }
     .item-icone {
+        color: $primary-color;
         font-size: 2.5em;
     }
     .item-about {
+        font-size: .8em;
         margin-left: 20px;
         padding-left: 8px;
         border-left: solid $primary-color 1px;
         overflow: hidden;
         max-height: 0;
-        transition: max-height .3s;
+        transition: max-height .5s;
         transition-timing-function: linear;
     }
 }
@@ -106,21 +103,20 @@ form {
 
     input , textarea{
         padding: 2px 10px;
-        color: scale-color(white, $lightness: -30%);
         width: 100%;
-        background: $bg-color;
-        border: solid 1px $bg-color;
+        background: scale-color($primary-color, $lightness: 95%);
+        border: solid 1px $primary-color;
 
         &:focus {
             outline: none;
-            border: solid 1px $primary-color;
+            border: solid 1px $secondary-color;
         }
     }
     input:-webkit-autofill,
     input:-webkit-autofill:hover, 
     input:-webkit-autofill:focus{
-        -webkit-text-fill-color: scale-color(white, $lightness: -30%);
-        box-shadow: 0 0 0px 1000px $bg-color inset;
+        -webkit-text-fill-color: $txt-color;
+        box-shadow: 0 0 0px 1000px scale-color($primary-color, $lightness: 95%) inset;
     }
     .invalid-data {
         color: $alert-color;
