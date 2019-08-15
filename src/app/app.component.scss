@@ -15,7 +15,12 @@ header {
     margin-left: $header-width;
     position: relative;
 
-    .page-content {
+    .about {
+        padding: 40px 0;
+        background: scale-color($primary-color, $lightness: 95%);
+        box-shadow: 0 0 7px black;
+    }
+    .page-content, .about-content {
         max-width: 800px;
         margin: auto;
     }

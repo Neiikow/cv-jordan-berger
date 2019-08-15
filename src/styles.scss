@@ -20,7 +20,6 @@ section {
         font-size: 1.8em;
         padding: 10px;
         padding-left: 20px;
-        margin: 0;
         background: scale-color($primary-color, $lightness: 95%);
     }
     .item {
@@ -98,7 +97,7 @@ section {
 }
 
 form {
-    padding: 10px;
+    padding: 10px 20px;
     padding-left: 0;
 
     input , textarea{
@@ -126,4 +125,39 @@ form {
 
 p {
     margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.avatar, .badge {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+}
+.avatar {
+    position: relative;
+    overflow: hidden;
+    
+    .badge {
+        border: solid $primary-color 5px;
+        box-shadow: inset 0 0 10px  black;
+        position: absolute;
+        z-index: 2;
+
+        &:empty {
+            display: block;
+        }
+    }
+    .img {
+        position: absolute;
+        left: 0;
+        z-index: 1;
+    }
+    img {
+        width: 100%;
+    }
 }

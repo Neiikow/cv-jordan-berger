@@ -1,0 +1,74 @@
+<form *ngIf="user" [formGroup]="dataForm" (ngSubmit)="onSubmit(dataForm.value)">
+  <div class="d-flex">
+    <div class="col-6 pl-0">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" formControlName="email" [ngClass]="{'is-invalid': submitted && f.email.errors}">
+        <div *ngIf="submitted && f.email.errors" class="invalid-data">
+          <div *ngIf="f.email.errors.required">Champ requis</div>
+          <div *ngIf="f.email.errors.maxlength">Trop long</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" formControlName="age" [ngClass]="{'is-invalid': submitted && f.age.errors}">
+        <div *ngIf="submitted && f.age.errors" class="invalid-data">
+          <div *ngIf="f.age.errors.required">Champ requis</div>
+          <div *ngIf="f.age.errors.maxlength">Trop long</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="picture">Image</label>
+        <input type="text" id="picture" formControlName="picture" [ngClass]="{'is-invalid': submitted && f.picture.errors}">
+        <div *ngIf="submitted && f.picture.errors" class="invalid-data">
+          <div *ngIf="f.picture.errors.required">Champ requis</div>
+          <div *ngIf="f.picture.errors.maxlength">Trop long</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 pr-0">
+      <div class="form-group">
+        <label for="city">Ville</label>
+        <input type="text" id="city" formControlName="city" [ngClass]="{'is-invalid': submitted && f.city.errors}">
+        <div *ngIf="submitted && f.city.errors" class="invalid-data">
+          <div *ngIf="f.city.errors.required">Champ requis</div>
+          <div *ngIf="f.city.errors.maxlength">Trop long</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="postal">Code postal</label>
+        <input type="text" id="postal" formControlName="postal" [ngClass]="{'is-invalid': submitted && f.postal.errors}">
+        <div *ngIf="submitted && f.postal.errors" class="invalid-data">
+          <div *ngIf="f.postal.errors.required">Champ requis</div>
+          <div *ngIf="f.postal.errors.maxlength">Trop long</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="street">Adresse</label>
+        <input type="text" id="street" formControlName="street" [ngClass]="{'is-invalid': submitted && f.street.errors}">
+        <div *ngIf="submitted && f.street.errors" class="invalid-data">
+          <div *ngIf="f.street.errors.required">Champ requis</div>
+          <div *ngIf="f.street.errors.maxlength">Trop long</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Téléphone</label>
+        <input type="text" id="phone" formControlName="phone" [ngClass]="{'is-invalid': submitted && f.phone.errors}">
+        <div *ngIf="submitted && f.phone.errors" class="invalid-data">
+          <div *ngIf="f.phone.errors.required">Champ requis</div>
+          <div *ngIf="f.phone.errors.maxlength">Trop long</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="about">A propos</label>
+    <textarea id="about" formControlName="about" [ngClass]="{'is-invalid': submitted && f.about.errors}" rows="5"></textarea>
+    <div *ngIf="submitted && f.about.errors" class="invalid-data">
+      <div *ngIf="f.about.errors.required">Champ requis</div>
+      <div *ngIf="f.about.errors.maxlength">Trop long</div>
+    </div>
+  </div>
+  <button class="add" type="submit" title="Publier">Publier</button>
+</form>
+  

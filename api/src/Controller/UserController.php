@@ -112,9 +112,14 @@ class UserController extends FOSRestController
         $em = $this->getDoctrine()->getManager();
         $data = $em->getRepository(Users::class)->find($id);
 
-        $data->setUsername($user->getUsername());
         $data->setEmail($user->getEmail());
-        $data->setRoles($user->getRoles());
+        $data->setPicture($user->getPicture());
+        $data->setCity($user->getCity());
+        $data->setStreet($user->getStreet());
+        $data->setPostal($user->getPostal());
+        $data->setPhone($user->getPhone());
+        $data->setAge($user->getAge());
+        $data->setAbout($user->getAbout());
 
         if ($user->getPassword()) {
             $encodedPassword = $passwordEncoder->encodePassword(
@@ -124,9 +129,6 @@ class UserController extends FOSRestController
             $data->setPassword($encodedPassword);
         } else {
             $user->setPassword($data->getPassword());
-        }
-        if ($user->getPicture()) {
-            $data->setPicture($user->getPicture());
         }
         //$jwtManager = $this->container->get('lexik_jwt_authentication.jwt_manager');
         //$token = $jwtManager->create($data);

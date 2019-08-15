@@ -22,6 +22,8 @@ import { FormExperienceComponent } from './components/experience/form-experience
 import { FormInterestComponent } from './components/interest/form-interest/form-interest.component';
 import { FormLanguageComponent } from './components/language/form-language/form-language.component';
 import { FormSkillComponent } from './components/skill/form-skill/form-skill.component';
+import { AboutComponent } from './components/about/about.component';
+import { FormAboutComponent } from './components/about/form-about/form-about.component';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -45,6 +47,8 @@ export function tokenGetter(): any {
     FormInterestComponent,
     FormLanguageComponent,
     FormSkillComponent,
+    AboutComponent,
+    FormAboutComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,7 @@
         <div *ngIf="submitted && f.startyear.errors" class="invalid-data">
             <div *ngIf="f.startyear.errors.required">Champ requis</div>
             <div *ngIf="f.startyear.errors.maxlength">Trop long</div>
+            <div *ngIf="f.startyear.errors.minlength">Trop court</div>
         </div>
     </div>
     <div class="col">
@@ -30,6 +31,7 @@
         <div *ngIf="submitted && f.endyear.errors" class="invalid-data">
             <div *ngIf="f.endyear.errors.required">Champ requis</div>
             <div *ngIf="f.endyear.errors.maxlength">Trop long</div>
+            <div *ngIf="f.endyear.errors.minlength">Trop court</div>
         </div>
     </div>
   </div>

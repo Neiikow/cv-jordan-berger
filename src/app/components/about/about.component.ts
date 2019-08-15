@@ -3,11 +3,11 @@ import { User } from 'src/app/class/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-user-info',
-  templateUrl: './user-info.component.html',
-  styleUrls: ['./user-info.component.scss']
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.scss']
 })
-export class UserInfoComponent implements OnInit {
+export class AboutComponent implements OnInit {
   public user: User;
 
   constructor(private userService: UserService) { }
@@ -16,7 +16,7 @@ export class UserInfoComponent implements OnInit {
     this.getUser();
   }
 
-  public getUser(): void {
+  private getUser(): void {
     this.userService.getUser(1)
       .subscribe(data => {
         this.user = data;
