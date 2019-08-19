@@ -24,6 +24,9 @@ import { FormLanguageComponent } from './components/language/form-language/form-
 import { FormSkillComponent } from './components/skill/form-skill/form-skill.component';
 import { AboutComponent } from './components/about/about.component';
 import { FormAboutComponent } from './components/about/form-about/form-about.component';
+import { NavComponent } from './components/nav/nav.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -49,6 +52,9 @@ export function tokenGetter(): any {
     FormSkillComponent,
     AboutComponent,
     FormAboutComponent,
+    NavComponent,
+    PortfolioComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

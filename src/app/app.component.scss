@@ -15,14 +15,15 @@ header {
     margin-left: $header-width;
     position: relative;
 
-    .about {
-        padding: 40px 0;
-        background: scale-color($primary-color, $lightness: 95%);
-        box-shadow: 0 0 7px black;
-    }
-    .page-content, .about-content {
+    .page-content, .head-content {
         max-width: 800px;
         margin: auto;
+    }
+    #head {
+        padding: 40px 0;
+        margin-bottom: 80px;
+        background: scale-color($primary-color, $lightness: 95%);
+        box-shadow: 0 0 7px black;
     }
     &::after {
         content: "";
@@ -37,4 +38,3 @@ header {
         z-index: -1;  
     }
 }
-

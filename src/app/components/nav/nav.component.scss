@@ -1,0 +1,48 @@
+@import 'src/styles.scss';
+
+#menu a {
+    font-size: 1.7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    margin: 5px;
+    color: $secondary-color;
+    background: scale-color($primary-color, $lightness: 85%);
+    box-shadow: 0 0 2px black;
+
+    &:hover {
+        color: scale-color($primary-color, $lightness: 85%);
+        background: $secondary-color;
+        text-decoration: none;
+    }
+    &:active {
+        color: $secondary-color;
+        background: scale-color($primary-color, $lightness: 85%);
+    }
+}
+
+#menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.sticky {
+    z-index: 99;
+    background: scale-color($primary-color, $lightness: 95%);
+    box-shadow: 0 0 7px black;
+    position: fixed;
+    top: 0;
+    left: $header-width;
+    display: flex !important;
+    flex-direction: column;
+    animation-name: left2right;
+    animation-duration: .5s;
+}
+
+@keyframes left2right {
+    from {left: $header-width - 55px}
+    to {left: $header-width}
+}
