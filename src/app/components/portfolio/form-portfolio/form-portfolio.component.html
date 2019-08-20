@@ -1,0 +1,36 @@
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit(dataForm.value)">
+  <div class="form-group">
+    <label for="title">Intitulé</label>
+    <input type="text" id="title" formControlName="title" [ngClass]="{'is-invalid': submitted && f.title.errors}">
+    <div *ngIf="submitted && f.title.errors" class="invalid-data">
+      <div *ngIf="f.title.errors.required">Champ requis</div>
+      <div *ngIf="f.title.errors.maxlength">Trop long</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="category">Catégorie</label>
+    <input type="text" id="category" formControlName="category" [ngClass]="{'is-invalid': submitted && f.category.errors}">
+    <div *ngIf="submitted && f.category.errors" class="invalid-data">
+      <div *ngIf="f.category.errors.required">Champ requis</div>
+      <div *ngIf="f.category.errors.maxlength">Trop long</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="picture">Illustration</label>
+    <input type="text" id="picture" formControlName="picture" [ngClass]="{'is-invalid': submitted && f.picture.errors}">
+    <div *ngIf="submitted && f.picture.errors" class="invalid-data">
+      <div *ngIf="f.picture.errors.required">Champ requis</div>
+      <div *ngIf="f.picture.errors.maxlength">Trop long</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="details">Détails</label>
+    <textarea id="details" formControlName="details" [ngClass]="{'is-invalid': submitted && f.details.errors}"></textarea>
+    <div *ngIf="submitted && f.details.errors" class="invalid-data">
+      <div *ngIf="f.details.errors.required">Champ requis</div>
+      <div *ngIf="f.details.errors.maxlength">Trop long</div>
+    </div>
+  </div>
+  <button class="add" type="submit" title="Publier">Publier</button>
+  <button class="reset ml-3" (click)="reset()" title="Reset">Reset</button>
+</form>

@@ -27,6 +27,7 @@ import { FormAboutComponent } from './components/about/form-about/form-about.com
 import { NavComponent } from './components/nav/nav.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { FormPortfolioComponent } from './components/portfolio/form-portfolio/form-portfolio.component';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -55,6 +56,7 @@ export function tokenGetter(): any {
     NavComponent,
     PortfolioComponent,
     ContactComponent,
+    FormPortfolioComponent,
   ],
   imports: [
     BrowserModule,

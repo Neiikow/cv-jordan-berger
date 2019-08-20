@@ -1,3 +1,14 @@
-<p>
-  portfolio works!
-</p>
+<div class="item-grp" *ngIf="portfolios">
+  <div class="item d-flex flex-wrap justify-content-between" *ngFor="let portfolio of portfolios">
+    <a href="" target="blank" class="text-left item-card" [style.background-image]="'url('+portfolio.picture+')'">
+      <div class="item-content">
+        <p class="text-uppercase font-weight-bold pb-2">{{ portfolio.title }}</p>
+        <p class="font-italic font-weight-light">{{ portfolio.category }}</p>
+      </div>
+    </a>
+    <div class="d-flex nowrap m-auto">
+      <button class="edit" *ngIf="isAuth('ROLE_ADMIN')" (click)="edit(portfolio)" title="Editer"><i class="fas fa-pen"></i></button>
+      <button class="delete" *ngIf="isAuth('ROLE_ADMIN')" (click)="delete(portfolio)" title="Supprimer"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+</div>

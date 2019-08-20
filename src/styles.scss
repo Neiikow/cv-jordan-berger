@@ -138,6 +138,7 @@ h1, h2 {
     height: 190px;
     border-radius: 50%;
 }
+
 .avatar {
     position: relative;
     overflow: hidden;
@@ -160,4 +161,8 @@ h1, h2 {
     img {
         width: 100%;
     }
+}
+
+a {
+    text-decoration: none;
 }

@@ -56,6 +56,17 @@
 <div class="row">
   <div class="col">
     <section>
+      <h2>Portfolio</h2>
+      <div class="content row">
+        <app-portfolio class="col-7" (emitEdit)="editPortfolio($event)"></app-portfolio>
+        <app-form-portfolio class="col-5" (refreshPortfolio)="refreshPortfolio()"></app-form-portfolio>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <section>
       <h2>Profil</h2>
       <div class="content row">
         <app-form-about class="col"></app-form-about>

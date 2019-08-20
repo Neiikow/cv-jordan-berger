@@ -9,6 +9,8 @@ import { FormEducationComponent } from '../../education/form-education/form-educ
 import { FormExperienceComponent } from '../../experience/form-experience/form-experience.component';
 import { FormInterestComponent } from '../../interest/form-interest/form-interest.component';
 import { FormLanguageComponent } from '../../language/form-language/form-language.component';
+import { FormPortfolioComponent } from '../../portfolio/form-portfolio/form-portfolio.component';
+import { PortfolioComponent } from '../../portfolio/portfolio.component';
 
 @Component({
   selector: 'app-page-admin',
@@ -21,12 +23,14 @@ export class PageAdminComponent {
   @ViewChild(ExperienceComponent) experience: ExperienceComponent;
   @ViewChild(InterestComponent) interest: InterestComponent;
   @ViewChild(LanguageComponent) language: LanguageComponent;
+  @ViewChild(PortfolioComponent) portfolio: PortfolioComponent;
 
   @ViewChild(FormSkillComponent) formSkill: FormSkillComponent;
   @ViewChild(FormEducationComponent) formEducation: FormEducationComponent;
   @ViewChild(FormExperienceComponent) formExperience: FormExperienceComponent;
   @ViewChild(FormInterestComponent) formInterest: FormInterestComponent;
   @ViewChild(FormLanguageComponent) formLanguage: FormLanguageComponent;
+  @ViewChild(FormPortfolioComponent) formPortfolio: FormPortfolioComponent;
 
   private refreshSkill(): any {
     this.skill.getSkills();
@@ -66,5 +70,13 @@ export class PageAdminComponent {
 
   private editLanguage(language): any {
     this.formLanguage.initForm(language);
+  }
+
+  private refreshPortfolio(): any {
+    this.portfolio.getPortfolios();
+  }
+
+  private editPortfolio(portfolio): any {
+    this.formPortfolio.initForm(portfolio);
   }
 }
